@@ -1,0 +1,344 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.hero {
+    padding-left: 76px;
+    padding-right: 76px;
+    padding-bottom: 76px;
+    display: flex;
+    gap: 120px;
+    /*120px*/
+}
+
+.hero-left {
+    background: var(--Background-Variant-1, #F4F4F4);
+    display: flex;
+    width: 552px;
+    /*552px*/
+    /* height: 455px; */
+    /*455px*/
+    padding: 18px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+}
+
+.hero-head {
+    display: flex;
+    width: 456px;
+    /*456px*/
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.hero-head h1 {
+    color: var(--Primary-Primary, #282828);
+
+    /* Title/Large */
+    font-family: Montserrat;
+    font-size: 22px;
+    /*22px*/
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 127.273% */
+}
+
+.hero-head p {
+    color: var(--Primary-Primary, #282828);
+
+    /* Body/Large */
+    font-family: Montserrat;
+    font-size: 16px;
+    /*16px*/
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.5px;
+}
+
+.hero-input {
+    display: flex;
+    width: 456px;
+    /*456px*/
+    height: 84px;
+    padding: 8px 2px 0px 0px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.email-content {
+    display: flex;
+    width: 100%;
+    padding: 16px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid var(--Primary-Primary, #282828);
+    background: var(--Primary-On-Primary, #FFF);
+}
+
+.mailbox {
+    display: flex;
+    padding: 0px 12px;
+    align-items: center;
+    gap: 16px;
+}
+
+.mailbox img {
+    width: 24px;
+    height: 24px;
+}
+
+.mailbox input {
+    color: var(--Primary-Primary, #282828);
+
+    /* Body/Large */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+.forget {
+    display: flex;
+    align-items: flex-start;
+    gap: 70px;
+
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remember input {
+    width: 15px;
+    height: 15px;
+}
+
+.remember p {
+    display: flex;
+    width: 212px;
+    /*212px*/
+    height: 24px;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--Primary-Primary, #282828);
+
+    /* Body/Large */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.5px;
+}
+
+.forget .btnn {
+    color: var(--Secondary-Secondary, #C3B212);
+    text-align: right;
+
+    /* Body/Large */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.5px;
+    border: none;
+
+}
+
+.signin {
+    display: flex;
+    width: 456px;
+    /*456px*/
+    height: 56px;
+
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    background: var(--Primary-Primary, #282828);
+    color: var(--Primary-On-Primary, #FFF);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: 0.1px;
+
+
+}
+
+.hero-r {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.hero-right {
+
+    width: 426px;
+    /*456px*/
+    /* height: 351px; */
+    /*381px*/
+    flex-shrink: 0;
+    background: var(--Background-Variant-1, #F4F4F4);
+    padding: 28px;
+}
+
+.heading {
+    display: flex;
+    width: 392px;
+    /*392px*/
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+}
+
+.heading h1 {
+    color: var(--Primary-Primary, #282828);
+
+    /* Title/Large */
+    font-family: Montserrat;
+    font-size: 22px;
+    /*22px*/
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 127.273% */
+}
+
+.heading p {
+    color: var(--Primary-Primary, #282828);
+
+    /* Body/Large */
+    font-family: Montserrat;
+    font-size: 16px;
+    /*16px*/
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.5px;
+}
+
+.benif {
+    display: flex;
+    width: 376px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.benefits {
+    display: flex;
+    padding: 8px 0px;
+    align-items: center;
+    gap: 18px;
+}
+
+.benefits p {
+    color: var(--Primary-Primary, #282828);
+
+    /* Body/Medium */
+    font-family: Montserrat;
+    font-size: 14px;
+    /*14px*/
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: 0.25px;
+}
+
+.benefits img {
+    width: 24px;
+    height: 24px;
+
+}
+
+.create {
+    display: flex;
+    width: 392px;
+    height: 56px;
+    margin-top: 24px;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    color: var(--Primary-Primary, #282828);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    /*14px*/
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    /* 142.857% */
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+    border: 1px solid var(--Primary-Primary, #282828);
+
+}
+
+.hero-b {
+    display: inline-flex;
+    padding: 32px 28px 48px 36px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    background: var(--Background-Variant-1, #F4F4F4);
+}
+
+.heading {
+    display: flex;
+    width: 392px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.create-btn {
+    display: flex;
+    width: 392px;
+    height: 56px;
+
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    color: var(--Primary-Primary, #282828);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    /*14px*/
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    /* 142.857% */
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+    border: 1px solid var(--Primary-Primary, #282828);
+}

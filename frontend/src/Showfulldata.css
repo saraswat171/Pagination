@@ -1,0 +1,16 @@
+.singleuser{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+   margin: auto;
+    padding: 10px;
+    width: 480px;
+   /* align-items: center; */
+   background-color: gray;
+    
+}
+.singlehead{
+    font-size: 50px;
+    font-weight: 40px;
+    letter-spacing: 0.1;
+}

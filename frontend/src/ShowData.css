@@ -1,0 +1,23 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .showdata{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  td{
+ text-align: center;
+  }
+  .select{
+    width: fit-content;
+  }
+  .setlimit{
+    display: flex;
+    gap: 10px;
+  }
+  .linkto{
+    cursor: pointer;
+  }
