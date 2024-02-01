@@ -85,14 +85,17 @@ app.get('/userData', async (req, res) => {
     console.log('reqttt' , req.query)
 
 	try { 
-		let { page, size } = req.query; 
+		let { page, size ,...flag} = req.query; 
 
 		
 
 		const p = parseInt(page);
 		const limit = parseInt(size); 
+		const Salary=parseInt(salary)
 		console.log('page :' ,p)
 		console.log('limitt' ,limit)
+		console.log('SALARY' ,Salary)
+		
 		var n = (p-1)*limit;
 		if(page === '1'){
 			// const user = await UsersModel.find().limit(limit)	;
@@ -104,11 +107,14 @@ app.get('/userData', async (req, res) => {
 		 n = (p-1)*limit;
 		
 	}
-         
-	const user = await UsersModel.find().skip(n).limit(limit);	
+      const count = await UsersModel.countDocuments(); 
+	  console.log(count)  
+	  const count1 = count/limit;
+	
+	const user = await UsersModel.find().skip(n).limit(limit).sort({flag:1});	
         console.log('usersff: ',  user)
 		res.json({ 
-			
+			Count:count,
 			Info: user, 
 		}); 
 	} 

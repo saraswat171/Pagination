@@ -8,32 +8,41 @@ const ShowData = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [size, setSize] = useState(5);
+  const[flag,setFlag]=useState('');
+  const [cnt , setCnt] =useState(1);
   // const [edit, setEdit] = useState(false);
   const [items, setItems] = useState(null);
   
  
   const navigate = useNavigate();
-
+ 
 
   useEffect(() => {
     fetchData();
-  }, [page, size]);
+  }, [page, size, flag]);
 
   const fetchData = async () => {
 
     try {
-      const response = await axios.get(`http://localhost:8080/userData?page=${page}&size=${size}`);
-      console.log('response.data.Info:', response.data.Info)
+      const response = await axios.get(`http://localhost:8080/userData?page=${page}&size=${size}&flag=${flag}`);
+      console.log('response.data.Info:', response.data.Count)
       setData(response.data.Info);
+      const c =Math.ceil(response.data.Count/size);
+      console.log("count is" , c)
+   setCnt(c);
       console.log('data to show', data[0]._id)
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  const handlePageSizeChange = (e) => {
+  const handlePageSizeChange = (e) => { 
     setSize(parseInt(e.target.value));
     setPage(1);
+  };
+  const handleSalarysortChange = (e) => {
+    setFlag(e.target.value);
+    
   };
   const handleClick = (item) => {
     console.log(item)
@@ -101,6 +110,14 @@ const ShowData = () => {
 
         </select>
       </div>
+      <div className='setlimit'>
+        <label>sort by : </label>
+        <select className='select' value={flag} onChange={handleSalarysortChange}>
+          <option value='salary' >Salary </option>
+          <option value='name'>Name</option>
+
+        </select>
+      </div>
 
 
 
@@ -142,7 +159,7 @@ const ShowData = () => {
           Previous
         </button>
         <span> Page {page} </span>
-        <button onClick={() => setPage(page + 1)}>Next</button>
+        <button disabled={page === cnt} onClick={() => setPage(page + 1)}>Next</button>
       </div>
      {items &&
       <div >
