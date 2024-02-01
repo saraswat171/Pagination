@@ -1,9 +1,15 @@
+.userdatadiv{
+    display: flex;
+    gap: 40px;
+}
+
 .singleuser{
     display: flex;
     flex-direction: column;
     gap: 30px;
-   margin: auto;
-    padding: 10px;
+   /* margin: auto; */
+    padding: 20px;
+    margin: 20px;
     width: 480px;
    /* align-items: center; */
    background-color: gray;
@@ -13,4 +19,11 @@
     font-size: 50px;
     font-weight: 40px;
     letter-spacing: 0.1;
+}
+.btn{
+    width: 120px;
+    font-size: 30px;
+}
+.large{
+    display: none;
 }

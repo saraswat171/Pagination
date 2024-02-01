@@ -2,6 +2,8 @@ const express = require("express")
 const mongoose = require('mongoose')
 const cors = require('cors')
 const UsersModel = require('./models/Users')
+// const bodyParser= require('body-parser')
+// const jsonParser = bodyParser.json()
 
 const app = express()
 app.use(express.text())
@@ -40,6 +42,42 @@ app.post('/usersinfo', async (req, res) => {
     catch (err) { res.status(500).json(err) }
   
 })
+
+app.put('/update/:id' , async(req,res)=>{
+	console.log('reqst id'  , req)
+     const {id} = req.params;
+	 console.log ('idis ',id)
+	 const { name, email, designation , salary} = req.body;
+	try{
+		if(!mongoose.Types.ObjectId.isValid(id)){
+			return res.status(404).json('invaluid id')
+		 } 
+		 const updateUser = await UsersModel.findByIdAndUpdate(id, { name, email, designation , salary },{new :true})
+		 if(!updateUser){
+			return res.status(404).json('user not updated')
+		 }
+		 res.json(updateUser)
+	} catch (error) { 
+		res.status(500).json('Internal server error'); 
+	} 
+})
+
+
+app.delete('/deleteUser/:id', async(req,res)=>{
+	const {id} = req.params;
+	console.log ('id   is ',id)
+	
+   try{
+	console.log ('id   is ',id)
+		const deleteUser = await UsersModel.findByIdAndDelete(id)
+		
+		res.status(200).json({message: 'user deleted successfully', data: deleteUser})
+   } catch (error) { 
+	   res.status(500).json('Internal server error'); 
+   } 
+})
+
+
 
 
 
@@ -107,79 +145,3 @@ app.listen(8080, () => {
 
 
 
-/*var express = require('express'), 
-	Mongoose = require('mongoose'), 
-	Bcrypt = require('bcryptjs'), 
-	bodyParser = require('body-parser'), 
-	jsonParser = bodyParser.json(), 
-	User = require('./user') 
-
-const app = express(); 
-
-const db = `mongodb+srv://pallavi:pallavi123@ 
-cluster0.k0sop.mongodb.net/user?retryWrites= 
-true&w=majority` 
-
-Mongoose.connect(db, { 
-	useNewUrlParser: true, 
-	useUnifiedTopology: true, 
-	useCreateIndex: true
-}).then(() => console.log('MongoDB Connected....')) 
-
-// Handling GET /send Request 
-app.get("/send", async (req, res, next) => { 
-
-	try { 
-		let { page, size, sort } = req.query; 
-
-		// If the page is not applied in query. 
-		if (!page) { 
-
-			// Make the Default value one. 
-			page = 1; 
-		} 
-
-		if (!size) { 
-			size = 10; 
-		} 
-
-		// We have to make it integer because 
-		// query parameter passed is string 
-		const limit = parseInt(size); 
-
-		// We pass 1 for sorting data in 
-		// ascending order using ids 
-		const user = await User.find().sort( 
-			{ votes: 1, _id: 1 }).limit(limit) 
-		res.send({ 
-			page, 
-			size, 
-			Info: user, 
-		}); 
-	} 
-	catch (error) { 
-		res.sendStatus(500); 
-	} 
-}); 
-
-// Handling POST /send Request 
-app.post('/send', jsonParser, (req, res) => { 
-
-	req.body.password = 
-		Bcrypt.hashSync(req.body.password, 10); 
-	var newUser = new User({ 
-		username: req.body.username, 
-		password: req.body.password, 
-
-	}) 
-
-	newUser.save() 
-		.then(result => { 
-			console.log(result); 
-		}); 
-}) 
-
-// Server setup 
-app.listen(3000, function () { 
-	console.log("Express Started on Port 3000"); 
-});*/

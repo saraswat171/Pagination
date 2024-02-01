@@ -21,3 +21,6 @@ table, th, td {
   .linkto{
     cursor: pointer;
   }
+  td div{
+    margin: 20px;
+  }

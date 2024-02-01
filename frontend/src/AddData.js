@@ -4,14 +4,15 @@ import './AddData.css'
 
 
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
-function AddData() {
+function AddData(  ) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [designation, setDesignation] = useState('');
     const [salary , setSalary]=useState();
 
-
+   const navigate=useNavigate();
    
 
     
@@ -43,7 +44,9 @@ function AddData() {
 
         }
        
-           
+        const handleClick=()=>{
+               navigate('/ShowData')
+        }   
 
 
     
@@ -53,8 +56,8 @@ function AddData() {
             <form onSubmit={handleSubmit}>
                 <div className='hero-left'>
                     <div className='hero-head'>
-                        <h1>New User Sign Up Here!</h1>
-                        <p>Welcome! Sign Up for better experience.</p>
+                        <h1>New User Add Here!</h1>
+                        <p>Welcome! Add for better experience.</p>
                     </div>
                     <div className='hero-input'>
                         <div className='email-content'>
@@ -95,6 +98,7 @@ function AddData() {
 
 
                     <button className='signin' type='submit'  >ADD DATA</button>
+                    <button className='signin' type='submit' onClick={handleClick} >SHOW DATA</button>
                 </div>
             </form>
            
