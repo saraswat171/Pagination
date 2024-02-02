@@ -97,8 +97,10 @@ function AddData(  ) {
 
 
 
-                    <button className='signin' type='submit'  >ADD DATA</button>
+                   <div className='btn2'>
+                   <button className='signin' type='submit'  >ADD DATA</button>
                     <button className='signin' type='submit' onClick={handleClick} >SHOW DATA</button>
+                   </div>
                 </div>
             </form>
            

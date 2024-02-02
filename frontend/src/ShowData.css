@@ -1,26 +1,135 @@
-table, th, td {
+ /* th {
     border: 1px solid black;
+    border-right: none;
     border-collapse: collapse;
-  }
+  } */
+  /* table{
+    background-color: grey;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  } */
 
   .showdata{
     display: flex;
     flex-direction: column;
     gap: 40px;
+    background-color: black;
+    height: 100%;
+    margin: 40px;
+    padding: 40px;
   }
-  td{
- text-align: center;
-  }
-  .select{
-    width: fit-content;
-  }
-  .setlimit{
+  .showdata-upper{
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+   
+  }
+  .showdata-head{
+  
+    text-align: center;
+   
+  }
+  .showdata-head1{
+    font-size: 42px;
+    background: linear-gradient(to right,#16D1EA,#AE61EA );
+    -webkit-background-clip: text;
+    color: transparent;
+    
+  }
+
+  .showdata-data{
+    display: flex;
+   
+    
+    margin-left: auto;
+    
+
+  }
+ .showdiv-lower{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+  }
+ 
+
+  /* .setlimit{
+   
+  } */
+  .select{
+    border-radius: 5px;
   }
   .linkto{
     cursor: pointer;
   }
-  td div{
-    margin: 20px;
+ 
+
+  .signoff{
+    display: flex;
+   
+  
+    height: 36px;
+
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    background: linear-gradient(to right,#16D1EA,#AE61EA);
+    color: var(--Primary-On-Primary, #FFF);
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: 0.1px;
+    border: none;
+    border-radius: 5px;
   }
+  .textcolor{
+    color: white;
+    margin-right: 8px;
+    background-color: black;
+  }
+  .btn1{
+    border: none;
+  }
+
+  table {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    color: white;
+  }
+  
+  th {
+    background-color: #333; /* Dark grey background for header */
+  }
+  
+  tr:nth-child(even) {
+    background-color: #555; /* Dark grey background for even rows */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #777; /* Light grey background for odd rows */
+  }
+  
+  .linkto {
+    cursor: pointer;
+  }
+  
+  .linkto:hover {
+    text-decoration: underline;
+  }
+  

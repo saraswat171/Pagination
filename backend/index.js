@@ -82,46 +82,55 @@ app.delete('/deleteUser/:id', async(req,res)=>{
 
 
 app.get('/userData', async (req, res) => { 
-    console.log('reqttt' , req.query)
-
+	console.log('reqttt', req.query);
+  
 	try { 
-		let { page, size ,...flag} = req.query; 
-
-		
-
-		const p = parseInt(page);
-		const limit = parseInt(size); 
-		const Salary=parseInt(salary)
-		console.log('page :' ,p)
-		console.log('limitt' ,limit)
-		console.log('SALARY' ,Salary)
-		
-		var n = (p-1)*limit;
-		if(page === '1'){
-			// const user = await UsersModel.find().limit(limit)	;
-         n=0;
-		}
-		
-      
-	else {
-		 n = (p-1)*limit;
-		
-	}
-      const count = await UsersModel.countDocuments(); 
-	  console.log(count)  
-	  const count1 = count/limit;
-	
-	const user = await UsersModel.find().skip(n).limit(limit).sort({flag:1});	
-        console.log('usersff: ',  user)
-		res.json({ 
-			Count:count,
-			Info: user, 
-		}); 
+	  let { page, size, flag, designation } = req.query;
+  
+	  const p = parseInt(page);
+	  const limit = parseInt(size);
+  
+	  console.log('page :', p);
+	  console.log('limit:', limit);
+	  console.log('flag:', flag);
+	  console.log('designation:', designation);
+  
+	  var n = (p - 1) * limit;
+	  if (page === '1') {
+		n = 0;
+	  } else {
+		n = (p - 1) * limit;
+	  }
+  
+	  let query = {};
+  
+	  if (designation) {
+		// If designation is provided, add it to the query
+		query.designation = designation;
+	  }
+	  console.log('query is' , query)
+  
+	  const count = await UsersModel.countDocuments(query);
+  
+	  const user = await UsersModel
+		.find(query)
+		.skip(n)
+		.limit(limit)
+		.collation({ locale: 'en' })
+		.sort({ [flag]: 1 });
+  
+	  console.log('usersff: ',  user);
+  
+	  res.json({ 
+		Count: count,
+		Info: user, 
+	  }); 
 	} 
 	catch (error) { 
-		res.status(500).json('Internal server error'); 
+	  res.status(500).json('Internal server error'); 
 	} 
-}); 
+  });
+  
 
 
 
