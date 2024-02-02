@@ -13,9 +13,9 @@ const DesignationFilter = ({ onFilterChange }) => {
 
   return (
   <>
-  <label  className='textcolor'>Select Designation:</label>
-      <select id="designationDropdown" value={selectedDesignation} onChange={handleDesignationChange}>
-        <option value="">All Designations</option>
+
+      <select className='select formss' value={selectedDesignation} onChange={handleDesignationChange}>
+        <option  value="">Designations</option>
         {designations.map((designation) => (
           <option key={designation} value={designation}>
             {designation}

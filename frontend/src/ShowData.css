@@ -1,14 +1,4 @@
- /* th {
-    border: 1px solid black;
-    border-right: none;
-    border-collapse: collapse;
-  } */
-  /* table{
-    background-color: grey;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-  } */
+
 
   .showdata{
     display: flex;
@@ -61,6 +51,12 @@
   } */
   .select{
     border-radius: 5px;
+    background-color: #777;
+    border: none;
+    /* color: white; */
+  }
+  .select::placeholder{
+    color: black;
   }
   .linkto{
     cursor: pointer;
@@ -81,48 +77,54 @@
     background: linear-gradient(to right,#16D1EA,#AE61EA);
     color: var(--Primary-On-Primary, #FFF);
     text-align: center;
-    font-family: Montserrat;
+    /* font-family: Montserrat; */
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    /* 142.857% */
+   
     letter-spacing: 0.1px;
     border: none;
     border-radius: 5px;
   }
   .textcolor{
-    color: white;
+    color: #777;
     margin-right: 8px;
     background-color: black;
   }
   .btn1{
     border: none;
+  
+    
   }
 
   table {
     margin: 10px;
     padding: 10px;
-    width: 100%;
+   
     border-collapse: collapse;
+    
   }
   
   th, td {
     padding: 10px;
     text-align: left;
     color: white;
+ 
   }
   
   th {
-    background-color: #333; /* Dark grey background for header */
+    background-color: #333;
   }
   
   tr:nth-child(even) {
-    background-color: #555; /* Dark grey background for even rows */
+    background-color: #555; 
+    
   }
   
   tr:nth-child(odd) {
-    background-color: #777; /* Light grey background for odd rows */
+    background-color: #777;
+   
   }
   
   .linkto {
@@ -130,6 +132,22 @@
   }
   
   .linkto:hover {
-    text-decoration: underline;
+    color: black;
+  }
+  .serch-btn{
+    background-color: #777;
+    color: black;
+    border: none;
+  }
+  .formss{
+    padding: 2px;
+  }
+  .marginsss{
+    margin-left: 40px;
+  }
+  .srchit{
+    display: flex;
+    gap: 80px;
+   
   }
   

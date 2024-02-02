@@ -85,7 +85,7 @@ app.get('/userData', async (req, res) => {
 	console.log('reqttt', req.query);
   
 	try { 
-	  let { page, size, flag, designation } = req.query;
+	  let { page, size, flag, designation,search } = req.query;
   
 	  const p = parseInt(page);
 	  const limit = parseInt(size);
@@ -105,21 +105,24 @@ app.get('/userData', async (req, res) => {
 	  let query = {};
   
 	  if (designation) {
-		// If designation is provided, add it to the query
+	
 		query.designation = designation;
+	  }
+	  if(search){
+		query.name= {$regex : new RegExp(search , 'i')}
 	  }
 	  console.log('query is' , query)
   
 	  const count = await UsersModel.countDocuments(query);
   
 	  const user = await UsersModel
-		.find(query)
+		.find(query) 
 		.skip(n)
 		.limit(limit)
-		.collation({ locale: 'en' })
+		.collation({ locale: 'en' , strength:2})
 		.sort({ [flag]: 1 });
   
-	  console.log('usersff: ',  user);
+	//   console.log('usersff: ',  user);
   
 	  res.json({ 
 		Count: count,

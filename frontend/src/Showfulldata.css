@@ -1,32 +1,4 @@
-/* .userdatadiv{
-    display: flex;
-    gap: 40px;
-}
 
-.singleuser{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-   
-    padding: 20px;
-    margin: 20px;
-    width: 480px;
-   
-   background-color: gray;
-    
-}
-.singlehead{
-    font-size: 50px;
-    font-weight: 40px;
-    letter-spacing: 0.1;
-}
-.btn{
-    width: 120px;
-    font-size: 30px;
-}
-.large{
-    display: none;
-} */
 .userdatadiv {
     background-color: black;
     color: white;
@@ -48,7 +20,7 @@
   }
   
   .singleuser h2 {
-    background-color: #333; /* Grey background for user details */
+    background-color: #333;
     margin: 10px 0;
   }
   

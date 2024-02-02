@@ -14,6 +14,7 @@ const ShowData = () => {
 
   const [items, setItems] = useState(null);
   const [selectedDesignation, setSelectedDesignation] = useState('');
+  const [search,setSearch] =useState('');
 
 
   const navigate = useNavigate();
@@ -21,18 +22,20 @@ const ShowData = () => {
 
   useEffect(() => {
     fetchData();
-  }, [page, size, flag, selectedDesignation]);
+  }, [page, size, flag, selectedDesignation,search]);
 
   const fetchData = async () => {
     try {
       let url = `http://localhost:8080/userData?page=${page}&size=${size}&flag=${flag}`;
 
-        
+
       if (selectedDesignation) {
 
         url += `&designation=${selectedDesignation}`;
       }
-
+          if(search){
+            url += `&search=${search}`;
+          }
       const response = await axios.get(url);
 
       setData(response.data.Info);
@@ -47,7 +50,7 @@ const ShowData = () => {
     setSize(parseInt(e.target.value));
     setPage(1);
   };
-  const handleSalarysortChange = (e) => {
+  const handleSortChange = (e) => {
     setFlag(e.target.value);
 
   };
@@ -78,8 +81,8 @@ const ShowData = () => {
       console.log("res", response);
       if (response.status === 200) {
         fetchData();
-        const deletedData = data.filter((del) => del._id === id);
-        setData(deletedData)
+        // const deletedData = data.filter((del) => del._id === id);
+        // setData(deletedData)
         setItems(null);
       }
     }
@@ -104,6 +107,9 @@ const ShowData = () => {
   const handleaddClick = () => {
     navigate('/')
   }
+  const handleSearchSubmit =async()=>{
+    fetchData();
+  }
 
   return (
     <div className='showdiv'>
@@ -116,26 +122,40 @@ const ShowData = () => {
           <div className='showdata-btn'>
             <button className='signoff' type='submit' onClick={handleaddClick} >+ADD DATA</button>
           </div>
-          <div className=' showdata-data'>
+          {/* <div className=' showdata-data'>
             <label className='textcolor'>sort by : </label>
-            <select className='select' value={flag} onChange={handleSalarysortChange}>
+            <select className='select' value={flag} onChange={handleSortChange}>
               <option value='salary' >Salary </option>
               <option value='name'>Name</option>
 
-            </select>
+            </select> 
+          </div> */}
+          <div className='srchit'>
+          <div className=' showdata-data select'>
+                  <form className='formss' onSubmit={handleSearchSubmit}>
+                  <input type='search' className='select' name='search' placeholder='Search by name' value={search} onChange={(e) => setSearch(e.target.value)} />
+                  <button type="submit" className='serch-btn'><i class="fa fa-search"></i></button>
+                  </form>
           </div>
 
           <div className=' showdata-data'>
             <DesignationFilter onFilterChange={handleFilterChange} />
           </div>
         </div>
+          </div>
+       
 
         <table>
           <tr>
             <th >Name</th>
-            <th>Designation</th>
+            <th>Designation     <select className='select marginsss' value={flag} onChange={handleSortChange}>
+              <option value='salary' >Salary </option>
+              <option value='name'>Name</option>
+
+            </select></th>
             <th>Update</th>
             <th>Delete</th>
+            
           </tr>
 
           {data.map((item) => (
@@ -164,8 +184,9 @@ const ShowData = () => {
             <select className='select' value={size} onChange={handlePageSizeChange}>
               <option value={2}>2</option>
               <option value={4}>4</option>
-              <option value={6}>6</option>
               <option value={5}>5</option>
+              <option value={6}>6</option>
+             
               <option value={10}>10</option>
               <option value={15}>15</option>
 
@@ -179,7 +200,7 @@ const ShowData = () => {
             <button disabled={page === 1} onClick={() => setPage(page - 1)} className='textcolor btn1'>
               Previous
             </button>
-            <span className='textcolor'>  {page} </span>
+            <span className='textcolor'>  {page} / {cnt} </span>
             <button disabled={page === cnt} onClick={() => setPage(page + 1)} className='textcolor btn1' >Next</button>
           </div>
         </div>
